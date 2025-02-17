@@ -1,0 +1,16 @@
+<h1>Bienvenue sur ma page d'accueil !</h1>
+<p>Ceci est une page de test.</p>
+
+<% if @error %>
+  <p><%= @error %></p>
+<% elsif @repos %>
+  <h2>Dépôts GitHub</h2>
+  <ul>
+    <% @repos.each do |repo| %>
+      <li><%= repo['name'] %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>Connecte-toi pour voir tes dépôts GitHub.</p>
+  <%= link_to "Sign in with GitHub", "/auth/github" %>
+<% end %>
